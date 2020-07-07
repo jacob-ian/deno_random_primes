@@ -10,4 +10,4 @@ import { randomPrime } from "https://deno.land/x/random_prime/mod.ts";
 const prime: bigint = randomPrime(1024);
 ```
 ## License
-MIT.
+MIT License.
