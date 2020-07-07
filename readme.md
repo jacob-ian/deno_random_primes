@@ -29,6 +29,7 @@ Where:
 * `candidate` is a `bigint`.
 * `tests` is an optional `number` with a default value of 10.
 
+**Example:**
 ```typescript
 import { isProbablePrime } from "https://deno.land/x/random_prime/mod.ts";
 
