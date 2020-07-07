@@ -5,5 +5,5 @@
  * @version 1.0 07/07/2020
  */
 
-// Export the function
-export {} from "./src/generatePrimes.ts";
+// Export the functions
+export { randomPrime, isPrime } from "./src/randomPrimes.ts";
