@@ -4,10 +4,10 @@ Generate random prime numbers with a desired bit-length and an optional number o
 
 ## Usage
 ### Generate a Random Prime Number
-`const prime = randomPrime(bitlength, tests)`
+`randomPrime(bitlength, tests)`
 
 Where:
-* `prime` is a `bigint`.
+* `randomPrime()` returns a `bigint`.
 * `bitlength` is a `number`.
 * `tests` is an optional `number` with a default value of 10.
 
@@ -22,10 +22,10 @@ var prime: bigint = randomPrime(1024)
 var prime: bigint = randomPrime(2048, 20)
 ```
 ### Test if a BigInt is a Prime Number with Miller-Rabin
-`const isPrime = isProbablePrime(candidate, tests)`
+`isProbablePrime(candidate, tests)`
 
 Where:
-* `isPrime` is a `boolean`.
+* `isProbablePrime()` returns a `boolean`.
 * `candidate` is a `bigint`.
 * `tests` is an optional `number` with a default value of 10.
 
@@ -36,7 +36,7 @@ import { isProbablePrime } from "https://deno.land/x/random_prime/mod.ts";
 const candidate: bigint = 167n;
 
 // Check if candidate is a probable prime with 10 primality tests
-isProbablePrime(number) ? console.log("probable prime") : console.log("composite");
+isProbablePrime(candidate) ? console.log("probable prime") : console.log("composite");
 ```
 
 ## License
