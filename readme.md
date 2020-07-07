@@ -1,4 +1,4 @@
-# Deno Generate Prime Numbers
+# Deno Random Prime Numbers
 ## Description
 Generate random prime numbers with a desired bit-length.
 
