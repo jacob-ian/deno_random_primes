@@ -7,9 +7,9 @@ Generate random prime numbers with a desired bit-length and an optional number o
 `const prime = randomPrime(bitlength, tests)`
 
 Where:
-`prime` is a `bigint`.
-`bitlength` is a `number`.
-`tests` is an optional `number` with a default value of 10.
+* `prime` is a `bigint`.
+* `bitlength` is a `number`.
+* `tests` is an optional `number` with a default value of 10.
 
 **Example:**
 ```typescript
@@ -25,9 +25,9 @@ var prime: bigint = randomPrime(2048, 20)
 `const isPrime = isProbablePrime(candidate, tests)`
 
 Where:
-`isPrime` is a `boolean`.
-`candidate` is a `bigint`.
-`tests` is an optional `number` with a default value of 10.
+* `isPrime` is a `boolean`.
+* `candidate` is a `bigint`.
+* `tests` is an optional `number` with a default value of 10.
 
 ```typescript
 import { isProbablePrime } from "https://deno.land/x/random_prime/mod.ts";
