@@ -5,5 +5,4 @@
  * @version 1.0 07/07/2020
  */
 
-// Export the functions
-export { randomPrime, isPrime } from "./src/randomPrimes.ts";
+export { randomPrime, isProbablePrime } from "./src/randomPrimes.ts";
