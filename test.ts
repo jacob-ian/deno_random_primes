@@ -13,6 +13,7 @@ import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 Deno.test("Random Primes Test", () => {
   // Generate a 1024-bit random prime number
   const prime = randomPrime(1024);
+  console.log(prime);
 
   // Assert that the number generated is a prime number
   assertEquals(isProbablePrime(prime), true);

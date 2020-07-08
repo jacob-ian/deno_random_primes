@@ -9,7 +9,7 @@
 import {
   randomBigIntBits,
   randomBigIntRange,
-} from "https://deno.land/x/random_bigint@v1.2/mod.ts";
+} from "https://deno.land/x/random_bigint/mod.ts";
 
 /**
  * Generate a probable random prime number from a bit-length.
@@ -89,7 +89,19 @@ function millerRabin(integer: bigint, security: number): boolean {
   // Check the input variables
   if (integer >= 3n && security >= 1) {
     // Show that integer - 1 = 2^s * r such that r is odd
-    // TODO
+    // Start with s=0, so r = n - 1
+    var s = 0n;
+    var r = integer - 1n;
+
+    // Loop through removing factors of 2 from n-1
+    while (r % 2n === 0n) {
+      // Remove a factor of 2 from r
+      r /= 2n;
+
+      // Increment s
+      ++s;
+    }
+
     // Create a loop for the number of times the security desires
     for (var i = 0; i < security; i++) {
       // Choose a random base to make a test with
