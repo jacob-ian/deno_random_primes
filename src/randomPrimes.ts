@@ -9,7 +9,7 @@
 import {
   randomBigIntBits,
   randomBigIntRange,
-} from "https://deno.land/x/random_bigint/mod.ts";
+} from "../deps.ts";
 
 /**
  * Generate a probable random prime number from a bit-length.
