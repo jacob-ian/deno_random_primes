@@ -8,7 +8,7 @@ Generate random prime numbers with a desired bit-length and an optional number o
 
 Where:
 * `randomPrime()` returns a `bigint`.
-* `bitlength` is a `number`.
+* `bitlength` is a `number` that is >= 8.
 * `tests` is an optional `number` with a default value of 10.
 
 **Example:**

@@ -13,33 +13,41 @@ import {
 
 /**
  * Generate a probable random prime number from a bit-length.
- * @param bits the desired bit-length of the prime number.
+ * @param bits the desired bit-length of the prime number. Must be >= 8.
  * @param tests the number of times to test the generated 
  * prime number for its prime status. (optional). Default is 10.
  * @return a prime number as a bigint
  */
 export function randomPrime(bits: number, tests?: number): bigint {
-  // Create a variable to store the random prime
-  var prime = 0n;
+  // Make sure that the bit-length is 8 or above
+  if (bits >= 8) {
+    // Create a variable to store the random prime
+    var prime = 0n;
 
-  // Start a loop to generate a random integer with the correct
-  // number of bits and tests its primality
-  var found = false;
-  while (!found) {
-    // Generate a random integer
-    const random = randomBigIntBits(bits);
+    // Start a loop to generate a random integer with the correct
+    // number of bits and tests its primality
+    var found = false;
+    while (!found) {
+      // Generate a random integer
+      const random = randomBigIntBits(bits);
 
-    // Test its primality
-    if (isProbablePrime(random, tests)) {
-      // Let the prime to be outputted be the random integer
-      prime = random;
+      // Test its primality
+      if (isProbablePrime(random, tests)) {
+        // Let the prime to be outputted be the random integer
+        prime = random;
 
-      // End the loop
-      found = true;
+        // End the loop
+        found = true;
+      }
     }
+    // Return the probable prime number
+    return prime;
+  } else {
+    // Throw an error about needing a bigger bit length
+    throw new Error(
+      "Please use a bit-length greater than or equal to 8 for the required prime number.",
+    );
   }
-  // Return the probable prime number
-  return prime;
 }
 
 /**
@@ -67,9 +75,16 @@ export function isProbablePrime(cand: bigint, tests?: number): boolean {
   }
 
   // Check if tests has been defined
-  if (tests && tests >= 1) {
-    // Complete the Miller-Rabin tests with the desired tests
-    return millerRabin(cand, tests);
+  if (tests) {
+    if (tests >= 1) {
+      // Complete the Miller-Rabin tests with the desired tests
+      return millerRabin(cand, tests);
+    } else {
+      // Throw an error
+      throw new Error(
+        "Please use a number of tests >= 1 for prime number generation.",
+      );
+    }
   } else {
     // Complete the Miller-Rabin test with the default number
     // of security tests. 10 tests gives a probabilty that the
@@ -105,7 +120,7 @@ function millerRabin(integer: bigint, security: number): boolean {
     // Create a loop for the number of times the security desires
     for (var i = 0; i < security; i++) {
       // Choose a random base to make a test with
-      const base = randomBigIntRange(2n, integer - 2n);
+      var base = randomBigIntRange(2n, integer - 2n);
 
       // Compute y = base ^ r (mod integer)
       var y = modPow(base, r, integer);
