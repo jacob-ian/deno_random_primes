@@ -1,6 +1,7 @@
 # Deno Random Prime Numbers
-## Description
 Generate random prime numbers with a desired bit-length and an optional number of tests.
+
+Created by Jacob Ian Matthews ([Website](https://jacobianmatthews.com)  | [GitHub](https://github.com/jacob-ian))
 
 ## Usage
 ### Generate a Random Prime Number
