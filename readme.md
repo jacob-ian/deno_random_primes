@@ -39,6 +39,9 @@ const candidate: bigint = 167n;
 // Check if candidate is a probable prime with 10 primality tests
 isProbablePrime(candidate) ? console.log("probable prime") : console.log("composite");
 ```
+### Notes
+The probability that a composite number is incorrectly classified as a prime number decreases with an increased number of primality tests such that:
+`P=(1/4)^tests`.
 
 ## License
 MIT License.
