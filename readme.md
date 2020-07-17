@@ -1,7 +1,13 @@
-# Deno Random Prime Numbers
-Generate random prime numbers with a desired bit-length and an optional number of tests.
+# Deno Random Prime Numbers 🦕
+A random prime number generator for Deno.
 
-Created by Jacob Ian Matthews ([Website](https://jacobianmatthews.com)  | [GitHub](https://github.com/jacob-ian))
+This module can generate a pseudorandom prime number with a `bigint` type from a:
+* desired bit-length (e.g. 1024-bit); and
+* an optional number of primality tests
+
+This module is intended to be used for cryptography.
+
+*Created by Jacob Ian Matthews - [Website](https://jacobianmatthews.com)  | [GitHub](https://github.com/jacob-ian)*
 
 ## Usage
 ### Generate a Random Prime Number
@@ -40,9 +46,21 @@ const candidate: bigint = 167n;
 // Check if candidate is a probable prime with 10 primality tests
 isProbablePrime(candidate) ? console.log("probable prime") : console.log("composite");
 ```
-### Notes
+## Performance Information
+Increasing the number of primality tests and increasing the bit-length will decrease the speed of prime number generation. 
+
 The probability that a composite number is incorrectly classified as a prime number decreases with an increased number of primality tests such that:
-`P=(1/4)^tests`.
+
+`P(misclassified)=(1/4)^t`
+
+Where: 
+* `t` is the number of tests.
 
 ## License
 MIT License.
+
+## References
+The Miller-Rabin Primality Test algorithm was sourced from:<br>
+Menezes, A., P. van Oorschot and S. Vanstone. 1996. *Handbook of Applied Cryptography*. Boca Raton, Florida: Taylor & Francis Group, LLC.
+
+
