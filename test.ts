@@ -12,7 +12,7 @@ import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 // Create a test for the module
 Deno.test("Generate a Prime Number", () => {
   // Generate a 1024-bit random prime number
-  const prime = randomPrime(1024, 5);
+  const prime = randomPrime(1024, 3);
 
   // Log the generated number
   console.log(`\nPrime number generated: ${prime}`);

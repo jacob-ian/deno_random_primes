@@ -16,17 +16,17 @@ This module is intended to be used for cryptography.
 Where:
 * `randomPrime()` returns a `bigint`.
 * `bitlength` is a `number` that is >= 8.
-* `tests` is an optional `number` with a default value of 10.
+* `tests` is an optional `number` with a default value of 5.
 
 **Example:**
 ```typescript
 import { randomPrime } from "https://deno.land/x/random_prime/mod.ts";
 
-// Generate a random 1024-bit prime number with 10 primality tests
+// Generate a random 1024-bit prime number with 5 primality tests
 var prime: bigint = randomPrime(1024)
 
-// Generate a random 2048-bit prime number with 20 primality tests
-var prime: bigint = randomPrime(2048, 20)
+// Generate a random 2048-bit prime number with 10 primality tests
+var prime: bigint = randomPrime(2048, 10)
 ```
 ### Test if a BigInt is a Prime Number with Miller-Rabin
 `isProbablePrime(candidate, tests)`

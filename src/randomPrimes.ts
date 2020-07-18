@@ -15,7 +15,7 @@ import {
  * Generate a probable random prime number from a bit-length.
  * @param bits the desired bit-length of the prime number. Must be >= 8.
  * @param tests the number of times to test the generated 
- * prime number for its prime status. (optional). Default is 10.
+ * prime number for its prime status. (optional). Default is 5.
  * @return a prime number as a bigint
  */
 export function randomPrime(bits: number, tests?: number): bigint {
@@ -68,10 +68,80 @@ export function isProbablePrime(cand: bigint, tests?: number): boolean {
     // It is a prime number
     return true;
   }
-  // Ensure that the candidate is odd
-  if (cand % 2n === 0n) {
-    // Return false as it is even
-    return false;
+
+  // Begin a test of divisibility with all prime numbers up to 256
+  // before entering the Miller-Rabin test.
+  // List of prime numbers:
+  // prettier-ignore
+  const primeList = [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97,
+    101,
+    103,
+    107,
+    109,
+    113,
+    127,
+    131,
+    137,
+    139,
+    149,
+    151,
+    157,
+    163,
+    167,
+    173,
+    179,
+    181,
+    191,
+    193,
+    197,
+    199,
+    211,
+    223,
+    227,
+    229,
+    233,
+    239,
+    241,
+    251,
+  ];
+
+  // Create a loop to check divisibility
+  var loop = true;
+  var i = 0;
+  while (loop && i < primeList.length) {
+    if (cand % BigInt(primeList[i]) === 0n) {
+      // End the loop and return false as it is a composite number
+      loop = false;
+      return false;
+    } else {
+      // Increment the loop
+      i++;
+    }
   }
 
   // Check if tests has been defined
@@ -87,9 +157,9 @@ export function isProbablePrime(cand: bigint, tests?: number): boolean {
     }
   } else {
     // Complete the Miller-Rabin test with the default number
-    // of security tests. 10 tests gives a probabilty that the
+    // of security tests. 5 tests gives a probabilty that the
     // candidate isn't a prime of (1/4)^10 = (9E-5) %.
-    const defaultTests = 10;
+    const defaultTests = 5;
     return millerRabin(cand, defaultTests);
   }
 }
