@@ -5,7 +5,7 @@ This module can generate a pseudorandom prime number with a `bigint` type from a
 * desired bit-length (e.g. 1024-bit); and
 * an optional number of primality tests
 
-This module is intended to be used for cryptography.
+**NOTE: This module is currently exposed to a variable time attack and therefore shouldn't be used for cryptography until further notice.**
 
 *Created by Jacob Ian Matthews - [Website](https://jacobianmatthews.com)  | [GitHub](https://github.com/jacob-ian)*
 
